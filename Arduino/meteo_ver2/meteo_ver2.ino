@@ -127,7 +127,7 @@ void wifiSend()
     Serial.println(cmd); delay(500);
 
     // Prepare request including temperature/humidity data
-    // GET /update?api_key=CWASZ33W1W8ROAG0&field1=21.6&field2=19.4
+    // GET /update?api_key=xxx&field1=21.6&field2=19.4
     cmd = "GET /update?api_key=";
     cmd = cmd + writeApiKey;
     cmd = cmd + "&field1=";
