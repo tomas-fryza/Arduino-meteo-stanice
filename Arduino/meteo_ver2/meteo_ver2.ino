@@ -5,7 +5,7 @@
  *         sending them to ThingSpeak cloud via WiFi module ESP8266.
  * ATmega328P (Arduino Uno), 16 MHz, Arduino IDE 1.8.13
  *
- * Copyright (c) 2018-2021 Tomas Fryza
+ * Copyright (c) 2018-Present Tomas Fryza
  * Dept. of Radio Electronics, Brno University of Technology, Czechia
  * This work is licensed under the terms of the MIT license.
  *
@@ -98,7 +98,7 @@ void getHumidTempData()
 
 /**********************************************************************
  * Function: wifiSetup()
- * Purpose:  XXXXX.
+ * Purpose:  Get IP address and connect to WiFi network.
  * Returns:  none
  **********************************************************************/
 void wifiSetup()
@@ -116,7 +116,7 @@ void wifiSetup()
 
 /**********************************************************************
  * Function: wifiSend()
- * Purpose:  XXXXX.
+ * Purpose:  Create a GET request and send data to the server.
  * Returns:  none
  **********************************************************************/
 void wifiSend()

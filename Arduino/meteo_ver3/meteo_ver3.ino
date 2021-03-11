@@ -1,19 +1,25 @@
 /***********************************************************************
  * 
  * Arduino Meteo station.
- * Ver. 1: Reading values from temperature/humidity sensor DHT12.
+ * Ver. 3: Read values from temperature/humidity sensor DHT12, use 
+ *         functions from ESP8266 WiFi library and send data to ThingSpeak 
+ *         cloud.
  * ATmega328P (Arduino Uno), 16 MHz, Arduino IDE 1.8.13
  *
- * Copyright (c) 2018-Present Tomas Fryza
+ * Copyright (c) 2020-Present Tomas Fryza
  * Dept. of Radio Electronics, Brno University of Technology, Czechia
  * This work is licensed under the terms of the MIT license.
  *
  **********************************************************************/
 
 /* Includes ----------------------------------------------------------*/
+// Import required libraries
 // Wire library allows you to communicate with I2C/TWI devices
 // (see https://www.arduino.cc/en/reference/wire)
 #include <Wire.h>
+//TODO: Použít knihovnu přímo pro DHT12 senzor namísto obecné I2C Wire?
+
+#include <SoftwareSerial.h>
 
 
 /* Global variables --------------------------------------------------*/
@@ -24,20 +30,29 @@ unsigned char temp1 = 0;
 unsigned char humid0 = 0;
 unsigned char humid1 = 0;
 
+// SSID of your WiFi network
+String ssid = "";
+// Password of your WiFi network
+String password = "";
+// Write API Key from ThingSpeak cloud
+String writeApiKey = "";
+
 
 /* Functions ---------------------------------------------------------*/
 /**********************************************************************
  * Function: setup()
- * Purpose:  Setup function where the program execution begins. Set 
- *           serial communications: I2C/TWI, UART.
+ * Purpose:  Setup function where the program execution begins. Init 
+ *           serial communications (I2C/TWI, UART) and WiFi module.
  * Returns:  none
  **********************************************************************/
 void setup()
 {
     // Setup I2C/TWI communication with the Temp/Humid sensor
     Wire.begin();
-    // Setup UART communication for Serial Monitor
-    Serial.begin(9600);
+    // Setup UART communication with WiFi module
+    Serial.begin(115200);
+    // Setup WiFi module and get IP address from your router
+    wifiSetup();
 }
 
 /**********************************************************************
@@ -52,15 +67,11 @@ void loop()
     // Ask sensor for new data
     getHumidTempData();
 
-    // Send temperature/relative humidity data to UART
-    Serial.print("Temperature: ");
-    Serial.print(temp0); Serial.print("."); Serial.print(temp1); Serial.println(" deg");
-    Serial.print("Humidity   : ");
-    Serial.print(humid0); Serial.print("."); Serial.print(humid1); Serial.println("% RH");
-    Serial.println(" ");  // Just a new empty line
+    // Send temperature/relative humidity data to ThingSpeak cloud
+    wifiSend();
 
-    // Wait 3 seconds (3000 milisecs) and then continue
-    delay(3000);
+    // Wait 2 minutes (120,000 milisecs) and then continue
+    delay(120000);
 }
 
 /**********************************************************************
@@ -88,4 +99,56 @@ void getHumidTempData()
         temp0  = Wire.read();
         temp1  = Wire.read();
     }
+}
+
+/**********************************************************************
+ * Function: wifiSetup()
+ * Purpose:  Get IP address and connect to WiFi network.
+ * Returns:  none
+ **********************************************************************/
+void wifiSetup()
+{
+    // Command to get IP address
+    String cmd = "AT+CWJAP=\"" +ssid+ "\",\"" +password+ "\"";
+    
+    // Test WiFi module
+    Serial.println("AT"); delay(1000);
+    // Set mode to STA
+    Serial.println("AT+CWMODE=1"); delay(2000);
+    // Login to WiFi network and get IP address
+    Serial.println(cmd); delay(5000);
+}
+
+/**********************************************************************
+ * Function: wifiSend()
+ * Purpose:  Create a GET request and send data to the server.
+ * Returns:  none
+ **********************************************************************/
+void wifiSend()
+{
+    // Command to WiFi module
+    String cmd = "AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80";
+    // Start communication with ThingSpeak server
+    Serial.println(cmd); delay(500);
+
+    // Prepare request including temperature/humidity data
+    // GET /update?api_key=xxx&field1=21.6&field2=19.4
+    cmd = "GET /update?api_key=";
+    cmd = cmd + writeApiKey;
+    cmd = cmd + "&field1=";
+    cmd = cmd + String(temp0);
+    cmd = cmd + ".";
+    cmd = cmd + String(temp1);
+    cmd = cmd + "&field2=";
+    cmd = cmd + String(humid0);
+    cmd = cmd + ".";
+    cmd = cmd + String(humid1);
+    cmd = cmd + "\r\n";
+
+    // Send number of bytes first
+    Serial.print("AT+CIPSEND=");
+    Serial.println(cmd.length()); delay (100);
+
+    // Send request including temperature/humidity data
+    Serial.print(cmd);
 }
