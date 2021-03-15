@@ -17,24 +17,27 @@
 // Wire library allows you to communicate with I2C/TWI devices
 // (see https://www.arduino.cc/en/reference/wire)
 #include <Wire.h>
-//TODO: Použít knihovnu přímo pro DHT12 senzor namísto obecné I2C Wire?
+
 #include <SoftwareSerial.h>
+// Pin 2 and 3 act as RX and TX. Connect them to TX and RX of ESP8266
+SoftwareSerial espSerial(2, 3);
+#define DEBUG true
 
 
 /* Global variables --------------------------------------------------*/
-// Air temperature in the form TEMP0.TEMP1, such as 21.3
-unsigned char temp0 = 0;
-unsigned char temp1 = 0;
-// Relative humidity in the form HUMID0.HUMID1, such as 25.7
-unsigned char humid0 = 0;
-unsigned char humid1 = 0;
+// Air temperature in the form T0.T1, such as 21.3
+unsigned char t0 = 0;
+unsigned char t1 = 0;
+// Relative humidity in the form H0.H1, such as 25.7
+unsigned char h0 = 0;
+unsigned char h1 = 0;
 
 // SSID of your WiFi network
-String ssid = "";
+String mySSID = "";
 // Password of your WiFi network
-String password = "";
+String myPWD = "";
 // Write API Key from ThingSpeak cloud
-String writeApiKey = "";
+String myAPI = "";
 
 
 /* Functions ---------------------------------------------------------*/
@@ -48,11 +51,16 @@ void setup()
 {
     // Setup I2C/TWI communication with the Temp/Humid sensor
     Wire.begin();
+    // Setup UART communication with Serial monitor in Arduino IDE
+    Serial.begin(9600);
     // Setup UART communication with WiFi module
-    SoftwareSerial ESP8266(0, 1); // RX, TX
-    Serial.begin(115200);
+    espSerial.begin(115200);
+
     // Setup WiFi module and get IP address from your router
-    wifiSetup();
+    espData("AT", 1000, DEBUG);          // Test ESP8266 module
+    espData("AT+CWMODE=1", 2000, DEBUG); // Set the ESP mode as station mode
+    espData("AT+CWJAP=\""+ mySSID +"\",\""+ myPWD +"\"", 1000, DEBUG);//Connect to WiFi network
+    delay(5000);
 }
 
 /**********************************************************************
@@ -94,12 +102,13 @@ void getHumidTempData()
     // If 4 bytes were received, store them in global variables
     if (4 <= Wire.available())
     {
-        humid0 = Wire.read();
-        humid1 = Wire.read();
-        temp0  = Wire.read();
-        temp1  = Wire.read();
+        h0 = Wire.read();
+        h1 = Wire.read();
+        t0 = Wire.read();
+        t1 = Wire.read();
     }
 }
+
 
 /**********************************************************************
  * Function: wifiSetup()
@@ -109,15 +118,50 @@ void getHumidTempData()
 void wifiSetup()
 {
     // Command to get IP address
-    String cmd = "AT+CWJAP=\"" +ssid+ "\",\"" +password+ "\"";
+//    String cmd = "AT+CWJAP=\"" +ssid+ "\",\"" +password+ "\"";
     
     // Test WiFi module
     Serial.println("AT"); delay(1000);
     // Set mode to STA
     Serial.println("AT+CWMODE=1"); delay(2000);
     // Login to WiFi network and get IP address
-    Serial.println(cmd); delay(5000);
+//    Serial.println(cmd); delay(5000);
 }
+
+
+/**********************************************************************
+ * Function: espData()
+ * Purpose:  Send AT command to EST8266 module and wait for response.
+ * Returns:  response - Response of ESP8266
+ **********************************************************************/
+String espData(String command, const int timeout, boolean debug)
+{
+    // Display/send info to Serial monitor
+    Serial.print("AT Command ==> ");
+    Serial.print(command);
+    Serial.println("     ");
+
+    // Send info to ESP8266 module
+    String response = "";
+    espSerial.println(command);
+
+    // Wait for timeout and read responce from receiver pin
+    long int time = millis();
+    while ((time + timeout) > millis())
+    {
+        while (espSerial.available())
+        {
+            char c = espSerial.read();
+            response += c;
+        }
+    }
+    if (debug)
+    {
+        Serial.print(response);
+    }
+    return response;
+}
+
 
 /**********************************************************************
  * Function: wifiSend()
@@ -128,27 +172,36 @@ void wifiSend()
 {
     // Command to WiFi module
     String cmd = "AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80";
+    // Display/send info to Serial monitor
+//    Serial.print("AT Command ==> ");
+//    Serial.print(cmd);
+//    Serial.println("     ");
+
     // Start communication with ThingSpeak server
-    Serial.println(cmd); delay(500);
+//    espSerial.println(cmd); delay(500);
+    espData(cmd, 1000, DEBUG);
 
     // Prepare request including temperature/humidity data
     // GET /update?api_key=xxx&field1=21.6&field2=19.4
     cmd = "GET /update?api_key=";
-    cmd = cmd + writeApiKey;
+    cmd = cmd + myAPI;
     cmd = cmd + "&field1=";
-    cmd = cmd + String(temp0);
+    cmd = cmd + String(t0);
     cmd = cmd + ".";
-    cmd = cmd + String(temp1);
+    cmd = cmd + String(t1);
     cmd = cmd + "&field2=";
-    cmd = cmd + String(humid0);
+    cmd = cmd + String(h0);
     cmd = cmd + ".";
-    cmd = cmd + String(humid1);
+    cmd = cmd + String(h1);
     cmd = cmd + "\r\n";
 
     // Send number of bytes first
-    Serial.print("AT+CIPSEND=");
-    Serial.println(cmd.length()); delay (100);
+//    Serial.print("AT+CIPSEND=");
+//    Serial.println(cmd.length()); delay (100);
+    espData("AT+CIPSEND=" +String(cmd.length()), 100, DEBUG);  
 
     // Send request including temperature/humidity data
-    Serial.print(cmd);
+    espData(cmd, 100, DEBUG);
+//    Serial.print(cmd);
+//    espSerial.print(cmd);
 }
