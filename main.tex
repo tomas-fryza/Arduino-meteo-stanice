@@ -12,9 +12,9 @@
 % ======================================================================
 
 \documentclass[aspectratio=1610]{beamer}
-\usepackage[english]{babel}
-% \usepackage[czech]{babel}
 \usepackage[utf8]{inputenc} 
+% \usepackage[english]{babel}
+\usepackage[czech]{babel}
 \usepackage{ucs,graphicx,listings,color}
 
 % ----------------------------------------------------------------------
@@ -38,29 +38,29 @@
 
 % The short title appears at the bottom of every slide, the full title
 % is only on the title page.
-\title[Short title]
-{Full title of the thesis/project}
+\title[Online meteostanice]
+{Jednoduchá online meteostanice, krok za krokem}
 
 % Type of project, i.e. Semestral, Bachelor, Master's, PhD, etc.
-\subtitle
-{Semestral/Bachelor/Master's thesis}
+% \subtitle
+% {SPŠ Přerov}
 
 % Your name
-\author[Given name SURNAME]
-{Given name SURNAME\\
-\texttt{email@address}}
+\author[Tomáš FRÝZA]
+{Tomáš FRÝZA\\
+\texttt{Tomas.Fryza@vut.cz}}
 
 % Your institution
 \institute
-{Department of Radio Electronics\\
-Brno University of Technology, Czechia}
+{Ústav radioelektroniky, Fakulta elektrotechniky a~komunikačních technologií\\
+Vysoké učení technické v~Brně}
 
 % Date, can be changed to a custom date
-\date[\today]
-{Brno, \today}
+\date[16.3.2021]
+{Přerov, 16.3.2021}
 
 % Logo on title page
-\titlegraphic{\includegraphics[height=.15\textheight]{Images/logo/logo_fekt_urel.png}}
+\titlegraphic{\includegraphics[height=.15\textheight]{Images/logo/logo_fekt_urel_cze.png}}
 
 \begin{document}
 
@@ -73,32 +73,14 @@ Brno University of Technology, Czechia}
     \titlepage
 \end{frame}
 
-
-% ----------------------------------------------------------------------
-% https://cs.overleaf.com/learn/latex/Lists
-\begin{frame}{Lists}
-    \textbf{Unordered list}
-    \begin{itemize}
-        \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-
-        \item Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
-    \end{itemize}
-    \bigskip
-
-    \textbf{Ordered list}
-    \begin{enumerate}
-        \item \alert{Lorem ipsum dolor} sit amet, consectetuer adipiscing elit.
-
-        \item Aliquam erat volutpat:
-        \begin{itemize}
-            \item Integer lacinia.
-
-            \item Integer lacinia.
-        \end{itemize}
-    \end{enumerate}
+\begin{frame}
+    \frametitle{Obsah}
+    \tableofcontents
 \end{frame}
 
 
+% ======================================================================
+\section{Schéma zapojení}
 % ----------------------------------------------------------------------
 
 \begin{frame}{Multiple columns}
@@ -118,16 +100,20 @@ Brno University of Technology, Czechia}
 \end{frame}
 
 
+
+% ======================================================================
+\section{Sériová komunikace s~moduly}
 % ----------------------------------------------------------------------
 
-\begin{frame}{Multiple columns, \textit{cont.}}
-    \begin{multicols}{2}
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
-        \columnbreak
-        
-        Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Vestibulum fermentum tortor id mi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Fusce tellus. Praesent in mauris eu tortor porttitor accumsan.
-    \end{multicols}
-\end{frame}
+
+% ======================================================================
+\section{Data do cloudu}
+% ----------------------------------------------------------------------
+
+
+% ======================================================================
+\section{Další rozšíření stanice}
+% ----------------------------------------------------------------------
 
 
 % ----------------------------------------------------------------------
