@@ -2,8 +2,8 @@
  * 
  * Arduino Meteo station.
  * Ver. 3: Read values from temperature/humidity sensor DHT12, use 
- *         functions from ESP8266 WiFi library and send data to ThingSpeak 
- *         cloud.
+ *         software UART library for ESP8266 WiFi module and send data 
+ *         to ThingSpeak cloud.
  * ATmega328P (Arduino Uno), 16 MHz, Arduino IDE 1.8.13
  *
  * Copyright (c) 2020-Present Tomas Fryza
@@ -18,7 +18,6 @@
 // (see https://www.arduino.cc/en/reference/wire)
 #include <Wire.h>
 //TODO: Použít knihovnu přímo pro DHT12 senzor namísto obecné I2C Wire?
-
 #include <SoftwareSerial.h>
 
 
@@ -50,6 +49,7 @@ void setup()
     // Setup I2C/TWI communication with the Temp/Humid sensor
     Wire.begin();
     // Setup UART communication with WiFi module
+    SoftwareSerial ESP8266(0, 1); // RX, TX
     Serial.begin(115200);
     // Setup WiFi module and get IP address from your router
     wifiSetup();
