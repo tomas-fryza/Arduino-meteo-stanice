@@ -105,14 +105,14 @@ Pomocí nepájivého pole připojte WiFi modul ESP8266 ESP-01 a Arduino Uno dle 
 
    | **ESP8266** | **Arduino Uno** |
    | :-: | :-: |
-   | UOTXD | Rx (pin 0) |
+   | U0TXD | Rx (pin 0) |
    | CHIP_EN | 3.3V |
    | EXT_RSTB | Nepřipojeno |
    | 3.3V | 3.3V |
    | GND | GND |
    | GPIO2 | Nepřipojeno |
    | GPIO0 | Nepřipojeno |
-   | UORXD | Tx (pin 1) |
+   | U0RXD | Tx (pin 1) |
 
 Použijte zdrojový kód z adresáře [Arduino > meteo_ver2](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver2/meteo_ver2.ino) a překopírujte jej do prostředí Arduino IDE. Do kódu doplňte informace o vaší WiFi síti a APIWrite kód z předchozího bodu.
 
