@@ -1,4 +1,4 @@
-# Arduino-meteo-stanice
+# Jednoduchá meteo stanice
 
 Cílem tohoto projektu je seznámení s populární platformou Arduino Uno, která obsahuje 8bitový mikrokontrolér AVR a je vhodná pro celou řadu řídicích aplikací. Bude vytvořen jednoduchý bod v síti IoT (Internet of Things), který bude představovat meteo stanici se senzorem teploty a relativní vlhkosti vzduchu DHT12. Pro bezdrátovou komunikaci je použit WiFi modul ESP8266 a pro sběr a vizualizaci dat server ThingSpeak firmy MathWorks, Inc.
 
