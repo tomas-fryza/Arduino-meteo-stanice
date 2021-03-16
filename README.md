@@ -103,7 +103,7 @@ Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazen�
    ![Write API Key](Images/ts_apikey.png)
 
 6. Data je možné zobrazit odděleně pro vás (**Private View**) nebo pro všechny ostatní (**Public View**).
-7. 
+
 
 
 ## WiFi modul ESP8266
