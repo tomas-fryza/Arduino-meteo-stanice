@@ -78,9 +78,7 @@ Hodnota relativní vlhkosti vzduchu i teploty se skládá z celočíselné a des
 
 ![I2C komunikace se senzorem](Images/analyser_humid_temp.png)
 
-Pro ovládání komunikace I2C jsou využity funkce z knihovny [`Wire.h`](https://www.arduino.cc/en/reference/wire).
-
-Detailnější informace o sériové komunikaci I2C je možné nalézt v materiálech předmětu [Digitální elektronika 2](https://github.com/tomas-fryza/Digital-electronics-2/tree/master/Labs/08-i2c).
+Pro ovládání komunikace I2C jsou využity funkce z knihovny [`Wire.h`](https://www.arduino.cc/en/reference/wire). Detailnější informace o sériové komunikaci I2C je možné nalézt v materiálech předmětu [Digitální elektronika 2](https://github.com/tomas-fryza/Digital-electronics-2/tree/master/Labs/08-i2c).
 
 
 ### Asynchronní komunikace UART
@@ -95,9 +93,7 @@ Ukázka UART signálu pro přenos hodnoty `0100_0101` (0x45, 69, ASCII kód pís
 
 ![Přenos ASCII kódu písmene E](Images/uart_capture_E.png)
 
-Pro ovládání sériové komunikace UART jsou využity interní funkce Arduina [`Serial`](https://www.arduino.cc/reference/en/language/functions/communication/serial/).
-
-Detailnější informace o sériové komunikaci UART je možné nalézt v materiálech předmětu [Digitální elektronika 2](https://github.com/tomas-fryza/Digital-electronics-2/tree/master/Labs/07-uart).
+Pro ovládání sériové komunikace UART jsou využity interní funkce Arduina [`Serial`](https://www.arduino.cc/reference/en/language/functions/communication/serial/). Detailnější informace o sériové komunikaci UART je možné nalézt v materiálech předmětu [Digitální elektronika 2](https://github.com/tomas-fryza/Digital-electronics-2/tree/master/Labs/07-uart).
 
 
 ### Zdrojový kód: zobrazení dat ze senzoru v Serial monitoru
