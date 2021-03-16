@@ -1,10 +1,10 @@
 # Arduino-meteo-stanice
 
-Cílem tohoto projektu je seznámení s populární platformou Arduino, která obsahuje 8bitový mikrokontrolér AVR a je vhodná pro celou řadu řídicích aplikací. Bude vytvořen jednoduchý bod v síti IoT (Internet of Things), který bude představovat meteo stanici. Pro bezdrátovou komunikaci je použit WiFi modul ESP8266 ESP-01, dále kombinované teplotní a vlhkostní čidlo DHT12 a pro sběr a vizualizaci dat server [ThingSpeak](https://thingspeak.com/) firmy MathWorks, Inc.
+Cílem tohoto projektu je seznámení s populární platformou Arduino, která obsahuje 8bitový mikrokontrolér AVR a je vhodná pro celou řadu řídicích aplikací. Bude vytvořen jednoduchý bod v síti IoT (Internet of Things), který bude představovat meteo stanici. Pro bezdrátovou komunikaci je použit WiFi modul ESP8266 ESP-01, dále kombinované teplotní a vlhkostní čidlo DHT12 a pro sběr a vizualizaci dat server ThingSpeak firmy MathWorks, Inc.
 
 ![Zapojení na nepájivém poli](Images/arduino_komponenty.jpg)
 
-Aplikace je programována ve zjednodušené verzi jazyka C++ v prostředí [Arduino IDE](https://www.arduino.cc/en/software), které je zdarma dostupné pro Windows, Mac OS X i Linuxové distribuce. Data  Pro verifikaci správné funkce aplikací bude použit logický analyzátor firmy [Seleae, Inc.](https://www.saleae.com/)
+Aplikace je programována ve zjednodušené verzi jazyka C++ v prostředí [Arduino IDE](https://www.arduino.cc/en/software), které je zdarma dostupné pro Windows, Mac OS X i Linuxové distribuce. Data  Pro verifikaci správné funkce aplikace lze použít např. logický analyzátor firmy [Seleae, Inc.](https://www.saleae.com/) nebo podobný.
 
 Blokové zapojení celého zařízení:
 
