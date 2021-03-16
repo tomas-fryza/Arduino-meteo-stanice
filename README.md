@@ -1,10 +1,22 @@
 # Arduino-meteo-stanice
 
-Cílem tohoto projektu je seznámení s populární platformou Arduino, která obsahuje 8bitový mikrokontrolér AVR a je vhodná pro celou řadu řídicích aplikací. Bude vytvořen jednoduchý bod v síti IoT (Internet of Things), který bude představovat meteo stanici. Pro bezdrátovou komunikaci je použit WiFi modul ESP8266 ESP-01, dále kombinované teplotní a vlhkostní čidlo DHT12 a pro sběr a vizualizaci dat server ThingSpeak firmy MathWorks, Inc.
+Cílem tohoto projektu je seznámení s populární platformou Arduino Uno, která obsahuje 8bitový mikrokontrolér AVR a je vhodná pro celou řadu řídicích aplikací. Bude vytvořen jednoduchý bod v síti IoT (Internet of Things), který bude představovat meteo stanici se senzorem teploty a relativní vlhkosti vzduchu DHT12. Pro bezdrátovou komunikaci je použit WiFi modul ESP8266 a pro sběr a vizualizaci dat server ThingSpeak firmy MathWorks, Inc.
+
+
+## Použité komponenty
+
+* [Arduino Uno](https://arduino-shop.cz/arduino/1353-klon-arduino-uno-r3-atmega328p-ch340-mini-usb-1466635561.html)
+* I2C senzor vlhkosti a teploty [DHT12](https://arduino-shop.cz/arduino/1977-i2c-teplomer-a-vlhkomer-dht12-digitalni.html): [data sheet](Docs/dht12_manual.pdf)
+* WiFi modul [ESP8266](https://arduino-shop.cz/arduino/911-internet-veci-je-tady-tcp-ip-wifi-esp8266-1420990568.html): [AT příkazy](Docs/esp8266_at_instruction_set.pdf)
+* Nepájivé pole, drátové propojky
+* Prostředí [Arduino IDE](https://www.arduino.cc/en/software)
+* Server [ThingSpeak](https://thingspeak.com/)
+
+Pro ověření komunikace je vhodnou komponentou také:
+* 24MHz 8-kanálový [logický analyzátor](https://www.ebay.com/sch/i.html?LH_CAds=&_ex_kw=&_fpos=&_fspt=1&_mPrRngCbx=1&_nkw=24mhz%20logic%20analyzer&_sacat=&_sadis=&_sop=12&_udhi=&_udlo=)
+* [Ovládací softare](https://www.saleae.com/downloads/) pro logický analyzátor
 
 ![Zapojení na nepájivém poli](Images/arduino_komponenty.jpg)
-
-Aplikace je programována ve zjednodušené verzi jazyka C++ v prostředí [Arduino IDE](https://www.arduino.cc/en/software), které je zdarma dostupné pro Windows, Mac OS X i Linuxové distribuce. Data  Pro verifikaci správné funkce aplikace lze použít např. logický analyzátor firmy [Seleae, Inc.](https://www.saleae.com/) nebo podobný.
 
 Blokové zapojení celého zařízení:
 
@@ -18,20 +30,10 @@ Arduino je projekt vyvíjející otevřené platformy založené na 8bitovém mi
 
 ![Vývojová deska Arduino Uno](Images/cv_arduino_uno2.jpg)
 
-Vývojové prostředí Arduino IDE je velmi jednoduché a kromě textového editoru nabízí několik ovládacích prvků. My využijeme pouze: Verify (Compile) pro přeložení zdrojového kódu, Upload pro nahrání binární verze kódu do vývojové desky a Serial Monitor k otevření nového okna s asynchronní komunikaci mezi mikrokontrolérem a počítačem po USB kabelu.
+Aplikace je programována ve zjednodušené verzi jazyka C++ v prostředí [Arduino](https://www.arduino.cc/en/software), které je zdarma dostupné pro Windows, Mac OS X i Linuxové distribuce. Lze použít online verzi Arduino Web Editor (ke kterému je potřeba doinstalovat Arduino Create Agent pro programování hardwaru) nebo si stáhnout a lokálně nainstalovat prostředí Arduino IDE. Toto prostředí je velmi jednoduché a kromě textového editoru nabízí několik ovládacích prvků. My využijeme pouze: Verify (Compile) pro přeložení zdrojového kódu, Upload pro nahrání binární verze kódu do vývojové desky a Serial Monitor k otevření nového okna s asynchronní komunikaci mezi mikrokontrolérem a počítačem po USB kabelu.
 
 ![Vývojové prostředí Arduino IDE](Images/arduino_ide_example.png)
 
-```c
-void setup() {
-  // put your setup code here, to run once:
-
-}
-
-void loop() {
-  // put your main code here, to run repeatedly: 
-}
-```
 
 
 ## Sériová komunikace se senzorem a UART
