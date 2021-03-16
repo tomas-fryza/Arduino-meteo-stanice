@@ -104,7 +104,7 @@ Detailnější informace o sériové komunikaci UART je možné nalézt v materi
 
 ### Zdrojový kód: zobrazení dat ze senzoru v Serial monitoru
 
-Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Sériovém monitoru** naleznete v adresáři [Arduino > meteo_ver1](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver1/meteo_ver1.ino). Pozor, v monitoru je potřeba nastavit stejnou symbolovou rychlost s jakou mikrokontrolér data vysílá, tj. 9600 baud.
+Zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Sériovém monitoru** překopírujte z [meteo_ver1](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver1/meteo_ver1.ino) do Arduino IDE, zkompilujte jej a nahrajte do vývojové desky. Otevřete sériový monitor a nastavte v něm stejnou symbolovou rychlost s jakou mikrokontrolér data vysílá, tj. 9600 baud.
 
 ![Serial monitor](Images/monitor_ver1_temp_humid.png)
 
@@ -156,7 +156,7 @@ Pomocí nepájivého a vodičů pole připojte WiFi modul ESP8266 ESP-01 a Ardui
 
 ### Zdrojový kód: odeslání dat na server ThingSpeak
 
-Použijte zdrojový kód z adresáře [Arduino > meteo_ver2](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver2/meteo_ver2.ino) a překopírujte jej do prostředí Arduino IDE. Do kódu doplňte informace o vaší WiFi síti a APIWrite kód z předchozího bodu.
+Použijte zdrojový kód [meteo_ver2](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver2/meteo_ver2.ino) a překopírujte jej do prostředí Arduino IDE. Do kódu doplňte informace o vaší WiFi síti a APIWrite kód z předchozího bodu.
 
 ```c
 // ENTER YOUR VALUES
