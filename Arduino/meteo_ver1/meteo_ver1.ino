@@ -17,12 +17,12 @@
 
 
 /* Global variables --------------------------------------------------*/
-// Air temperature in the form TEMP0.TEMP1, such as 21.3
-unsigned char temp0 = 0;
-unsigned char temp1 = 0;
-// Relative humidity in the form HUMID0.HUMID1, such as 25.7
-unsigned char humid0 = 0;
-unsigned char humid1 = 0;
+// Air temperature in the form T0.T1, such as 21.3
+unsigned char t0 = 0;
+unsigned char t1 = 0;
+// Relative humidity in the form H0.H1, such as 25.7
+unsigned char h0 = 0;
+unsigned char h1 = 0;
 
 
 /* Functions ---------------------------------------------------------*/
@@ -54,9 +54,9 @@ void loop()
 
     // Send temperature/relative humidity data to UART
     Serial.print("Temperature: ");
-    Serial.print(temp0); Serial.print("."); Serial.print(temp1); Serial.println(" deg");
+    Serial.print(t0); Serial.print("."); Serial.print(t1); Serial.println(" deg");
     Serial.print("Humidity   : ");
-    Serial.print(humid0); Serial.print("."); Serial.print(humid1); Serial.println("% RH");
+    Serial.print(h0); Serial.print("."); Serial.print(h1); Serial.println("% RH");
     Serial.println(" ");  // Just a new empty line
 
     // Wait 3 seconds (3000 milisecs) and then continue
@@ -83,9 +83,9 @@ void getHumidTempData()
     // If 4 bytes were received, store them in global variables
     if (4 <= Wire.available())
     {
-        humid0 = Wire.read();
-        humid1 = Wire.read();
-        temp0  = Wire.read();
-        temp1  = Wire.read();
+        h0 = Wire.read();
+        h1 = Wire.read();
+        t0  = Wire.read();
+        t1  = Wire.read();
     }
 }
