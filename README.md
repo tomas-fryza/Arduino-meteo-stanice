@@ -167,7 +167,7 @@ Sběr meteodat, systém pro závlahu rostlin, LoRa síť: [bakalářská práce]
 
 [Ústav radioelektroniky](https://www.urel.fekt.vut.cz/)
 
-Studijní program [Elektronika a komunikační technologie](https://www.urel.fekt.vut.cz/bakalarsky-program)
+Bakalářský studijní program [Elektronika a komunikační technologie](https://www.urel.fekt.vut.cz/bakalarsky-program)
 
 [Facebook](https://www.facebook.com/URELBrno)
 
