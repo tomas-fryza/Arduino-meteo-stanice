@@ -92,12 +92,18 @@ Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazen�
 
    ![Web ThingSpeak](Images/ts_webpage.png)
 
-2. Vytvořte si účet--který je zdarma--pomocí vašeho emailu. Žádná oznámení/reklamy na email neposílají. Po vytvoření se do systému nalogujte.
+2. Vytvořte si účet--který je zdarma--pomocí vašeho emailu. Žádná reklamy na email nerozesílají. Po vytvoření se do systému nalogujte.
 3. Vytvořte nový komunikační kanál tlačítkem **New Channel**. Seznam kanálů naleznete kdykoliv v menu **Channels > My Channels**.
-4. Vyplňte jméno kanálu, jeho případný popis a vyberte kolik hodnot budete v kanálu posílat. Vše uložte tlačítkem **Save Channel**
+4. Vyplňte jméno kanálu, jeho případný popis a vyberte kolik hodnot budete v kanálu posílat. V části **Tags** můžete uvést klíčová slova, podle kterých bude váš kanál lépe dosažitelný. Vše uložte tlačítkem **Save Channel**.
 
    ![Tvorba nového kanálu](Images/ts_novy_kanal.png)
 
+5. Nastavení kanálu můžete kdykoliv změnit a doplnit v záložce **Channel Settings**. Volbou **Sharing** lze nastavit, zda vaše data budou dostupná všem, nebo jen vám po nalogování. V záložce **API Keys** naleznete identifikátory, které byly pro váš kanál vygenerovány a jsou jeho jedinečným označením. V naší aplikaci budeme na server pouze zapisovat a budeme tak používat pouze **Write API Key**, který později vložíme do zdrojového kódu aplikace.
+
+   ![Write API Key](Images/ts_apikey.png)
+
+6. Data je možné zobrazit odděleně pro vás (**Private View**) nebo pro všechny ostatní (**Public View**).
+7. 
 
 
 ## WiFi modul ESP8266
