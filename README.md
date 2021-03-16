@@ -84,6 +84,8 @@ Detailnější informace o sériové komunikaci UART je možné nalézt v materi
 
 Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Sériovém monitoru** naleznete v adresáři [Arduino > meteo_ver1](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver1/meteo_ver1.ino).
 
+![Serial monitor](Images/monitor_ver1_temp_humid.png)
+
 
 
 ## Server ThingSpeak
