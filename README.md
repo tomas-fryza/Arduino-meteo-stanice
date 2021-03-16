@@ -30,7 +30,9 @@ Arduino je projekt vyvíjející otevřené platformy založené na 8bitovém mi
 
 ![Vývojová deska Arduino Uno](Images/cv_arduino_uno2.jpg)
 
-Aplikace je programována ve zjednodušené verzi jazyka C++ v prostředí [Arduino](https://www.arduino.cc/en/software), které je zdarma dostupné pro Windows, Mac OS X i Linuxové distribuce. Lze použít online verzi Arduino Web Editor (ke kterému je potřeba doinstalovat Arduino Create Agent pro programování hardwaru) nebo si stáhnout a lokálně nainstalovat prostředí Arduino IDE. Toto prostředí je velmi jednoduché a kromě textového editoru nabízí několik ovládacích prvků. My využijeme pouze: Verify (Compile) pro přeložení zdrojového kódu, Upload pro nahrání binární verze kódu do vývojové desky a Serial Monitor k otevření nového okna s asynchronní komunikaci mezi mikrokontrolérem a počítačem po USB kabelu.
+Řídicí program mikrokontroléru (tzv. firmware) je vyvíjen ve zjednodušené verzi jazyka C++ v prostředí [Arduino](https://www.arduino.cc/en/software), které je zdarma dostupné pro Windows, Mac OS X i Linuxové distribuce. Lze použít online verzi Arduino Web Editor (ke kterému je potřeba doinstalovat Arduino Create Agent pro programování hardwaru) nebo si stáhnout a lokálně nainstalovat prostředí Arduino IDE.
+
+Toto prostředí je velmi jednoduché a kromě textového editoru nabízí jen několik ovládacích prvků. My využijeme pouze: **Verify** pro přeložení zdrojového kódu, **Upload** pro nahrání binární verze kódu do vývojové desky a **Serial Monitor** k otevření nového okna s asynchronní komunikaci mezi mikrokontrolérem a počítačem po USB kabelu.
 
 ![Vývojové prostředí Arduino IDE](Images/arduino_ide_example.png)
 
@@ -40,9 +42,16 @@ Aplikace je programována ve zjednodušené verzi jazyka C++ v prostředí [Ardu
 
 ### Sběrnice I2C
 
-Kombinované čidlo komunikuje po digitální sériové sběrnici I2C (Inter-integrated Circuit). Ta obsahuje dva vodiče: pro přenos dat s označením SDA a pro přenos hodinových impulzů SCL a umožňuje snadné propojení jednoho nadřízeného obvodu (tzv. master) s více podřízenými obvody (slave). Jako master je použit mikrokontrolér AVR na vývojové desce Arduino Uno a slave obvod je čidlo teploty/vlhkosti DHT12 (lze ale připojit desítky dalších slave obvodů).
+Pomocí nepájivého pole a vodičů připojte na datový (SDA) a hodinový (SCL) signál sběrnice I2C modul pro měření teploty/vlhkosti DHT12. Pro napájení použijte napětí 3.3 V a GND z vývojové desky Arduina.
 
-Pomocí nepájivého pole připojte na datový (SDA) a hodinový (SCL) signál sběrnice I2C modul pro měření teploty/vlhkosti DHT12. Pro napájení použijte napětí 3.3 V a GND z vývojové desky Arduina.
+   | **DHT12** | **Arduino Uno** |
+   | :-: | :-: |
+   | + | 3.3V |
+   | SDA | SDA |
+   | - | GND |
+   | SCL | SCL |
+
+Kombinované čidlo komunikuje po digitální sériové sběrnici I2C (Inter-integrated Circuit). Ta obsahuje dva vodiče: pro přenos dat s označením SDA a pro přenos hodinových impulzů SCL a umožňuje snadné propojení jednoho nadřízeného obvodu (tzv. master) s více podřízenými obvody (slave). Jako master je použit mikrokontrolér AVR na vývojové desce Arduino Uno a slave obvod je čidlo teploty/vlhkosti DHT12 (lze ale připojit desítky dalších slave obvodů).
 
 Při komunikaci na sběrnici I2C se nejprve adresuje podřízený obvod jediněčnou adresou, která je zadaná od výrobce (pro obvod DHT12 je to adresa 184 pro zápis a 185 pro čtení). Následně může proběhnout výměna dat jedním nebo druhým směrem.
 
@@ -82,9 +91,9 @@ Pro ovládání sériové komunikace UART jsou využity interní funkce Arduina 
 Detailnější informace o sériové komunikaci UART je možné nalézt v materiálech předmětu [Digitální elektronika 2](https://github.com/tomas-fryza/Digital-electronics-2/tree/master/Labs/07-uart).
 
 
-### Zdrojový kód
+### Zdrojový kód: zobrazení dat ze senzoru v Serial monitoru
 
-Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Sériovém monitoru** naleznete v adresáři [Arduino > meteo_ver1](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver1/meteo_ver1.ino).
+Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Sériovém monitoru** naleznete v adresáři [Arduino > meteo_ver1](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver1/meteo_ver1.ino). Pozor, v monitoru je potřeba nastavit stejnou symbolovou rychlost s jakou mikrokontrolér data vysílá, tj. 9600 baud.
 
 ![Serial monitor](Images/monitor_ver1_temp_humid.png)
 
@@ -92,17 +101,19 @@ Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazen�
 
 ## Server ThingSpeak
 
+Pro vytvoření komunikačního kanálu pro sběr dat z vašeho senzoru postupujte podle následujících kroků:
+
 1. V prohlížeči otevřete stránku https://thingspeak.com/ a stiskněte tlačítko **Get Started For Free**.
 
    ![Web ThingSpeak](Images/ts_webpage.png)
 
-2. Vytvořte si účet--který je zdarma--pomocí vašeho emailu. Žádná reklamy na email nerozesílají. Po vytvoření se do systému nalogujte.
+2. Vytvořte si účet--který je zdarma--pomocí vašeho emailu. Žádnou reklamu na email nerozesílají. Po vytvoření se do systému nalogujte.
 3. Vytvořte nový komunikační kanál tlačítkem **New Channel**. Seznam kanálů naleznete kdykoliv v menu **Channels > My Channels**.
 4. Vyplňte jméno kanálu, jeho případný popis a vyberte kolik hodnot budete v kanálu posílat. V části **Tags** můžete uvést klíčová slova, podle kterých bude váš kanál lépe dosažitelný. Vše uložte tlačítkem **Save Channel**.
 
    ![Tvorba nového kanálu](Images/ts_novy_kanal.png)
 
-5. Nastavení kanálu můžete kdykoliv změnit a doplnit v záložce **Channel Settings**. Volbou **Sharing** lze nastavit, zda vaše data budou dostupná všem, nebo jen vám po nalogování. V záložce **API Keys** naleznete identifikátory, které byly pro váš kanál vygenerovány a jsou jeho jedinečným označením. V naší aplikaci budeme na server pouze zapisovat a budeme tak používat pouze **Write API Key**, který později vložíme do zdrojového kódu aplikace.
+5. Nastavení kanálu můžete kdykoliv změnit a doplnit v záložce **Channel Settings**. Volbou **Sharing** lze nastavit, zda vaše data budou dostupná všem, nebo jen vám po nalogování. V záložce **API Keys** naleznete identifikátory, které byly pro váš kanál vygenerovány a jsou jeho jedinečným označením. V naší aplikaci budeme na server pouze zapisovat a budeme tak potřebovat pouze **Write API Key**, který později vložíme do zdrojového kódu aplikace.
 
    ![Write API Key](Images/ts_apikey.png)
 
@@ -112,9 +123,9 @@ Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazen�
 
 ## WiFi modul ESP8266
 
-Komunikační modul ESP8266 umožňuje využít bezdrátovou síť WiFi, připojit se k ní a odesílát data na server. Ovládání modulu probíhá tzv. AT příkazy.
+Komunikační modul ESP8266 umožňuje využít bezdrátovou síť WiFi, připojit se k ní a odesílát data na server. Ovládání modulu probíhá prostřednictvím tzv. AT příkazů.
 
-Pomocí nepájivého pole připojte WiFi modul ESP8266 ESP-01 a Arduino Uno dle obrázku. Výměna dat mezi modulem a řídicím mikrokontrolérem probíhá prostřednictvím asynchronní komunikace. Všimněte si, že vysílací pin modulu je proto spojen s přijímacím pinem Arduino a obráceně.
+Pomocí nepájivého a vodičů pole připojte WiFi modul ESP8266 ESP-01 a Arduino Uno dle tabulky. Výměna dat mezi modulem a řídicím mikrokontrolérem probíhá prostřednictvím asynchronní komunikace. Všimněte si, že vysílací pin modulu je proto spojen s přijímacím pinem Arduino a obráceně.
 
 ![Připojení modulu ESP8266](Images/cv_esp8266_foto_description.jpg)
 
@@ -129,18 +140,19 @@ Pomocí nepájivého pole připojte WiFi modul ESP8266 ESP-01 a Arduino Uno dle 
    | GPIO0 | Nepřipojeno |
    | U0RXD | Tx (pin 1) |
 
+
+
+### Zdrojový kód: odeslání dat na server ThingSpeak
+
 Použijte zdrojový kód z adresáře [Arduino > meteo_ver2](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver2/meteo_ver2.ino) a překopírujte jej do prostředí Arduino IDE. Do kódu doplňte informace o vaší WiFi síti a APIWrite kód z předchozího bodu.
 
 ```c
-// SSID of your WiFi network
-String ssid = "xxx";
-// Password of your WiFi network
-String password = "xxx";
-// Write API Key from ThingSpeak cloud
-String writeApiKey = "xxx";
+String ssid = "xxx";        // SSID of your WiFi network
+String password = "xxx";    // Password of your WiFi network
+String writeApiKey = "xxx"; // Write API Key from ThingSpeak cloud
 ```
 
-Kód přeložte a nahrajte do Arduino Uno. Vzhledem k tomu, že programování Arduina probíhá na stejných pinech, kde je připojen i WiFi modul, před samotným uploadem kódu odpojte vodiče z pinů 0 a 1 (Rx a Tx). Po úspěšném naprogramování vodiče opět připojte. Spusťte **Serial Monitor** na kterém pozorujte část komunikace s WiFi modulem (pozor, odpovědi modulu se nezobrazují):
+Kód přeložte a nahrajte do Arduino Uno. Vzhledem k tomu, že programování Arduina probíhá na stejných pinech, kde je připojen i WiFi modul, před samotným uploadem kódu odpojte vodiče z pinů 0 a 1 (Rx a Tx). Po úspěšném naprogramování vodiče opět připojte. Spusťte **Serial Monitor** na kterém pozorujte část komunikace s WiFi modulem (pozor, odpovědi modulu se nezobrazují a je nutné nastavit rychlost komunikace na 115200 baud):
 
 ```bash
 AT
