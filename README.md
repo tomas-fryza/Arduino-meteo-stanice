@@ -86,12 +86,17 @@ Kompletní zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazen�
 
 
 
-## Data na cloudu ThingSpeak
+## Server ThingSpeak
 
+1. V prohlížeči otevřete stránku https://thingspeak.com/ a stiskněte tlačítko **Get Started For Free**.
 
+   ![Web ThingSpeak](Images/ts_webpage.png)
 
-TBD
+2. Vytvořte si účet--který je zdarma--pomocí vašeho emailu. Žádná oznámení/reklamy na email neposílají. Po vytvoření se do systému nalogujte.
+3. Vytvořte nový komunikační kanál tlačítkem **New Channel**. Seznam kanálů naleznete kdykoliv v menu **Channels > My Channels**.
+4. Vyplňte jméno kanálu, jeho případný popis a vyberte kolik hodnot budete v kanálu posílat. Vše uložte tlačítkem **Save Channel**
 
+   ![Tvorba nového kanálu](Images/ts_novy_kanal.png)
 
 
 
