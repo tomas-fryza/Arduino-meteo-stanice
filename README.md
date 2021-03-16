@@ -108,29 +108,7 @@ Zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Séri
 
 
 
-## Server ThingSpeak
-
-Pro vytvoření komunikačního kanálu pro sběr dat z vašeho senzoru postupujte podle následujících kroků:
-
-1. V prohlížeči otevřete stránku https://thingspeak.com/ a stiskněte tlačítko **Get Started For Free**.
-
-   ![Web ThingSpeak](Images/ts_webpage.png)
-
-2. Vytvořte si účet--který je zdarma--pomocí vašeho emailu. Žádnou reklamu na email nerozesílají. Po vytvoření se do systému nalogujte.
-3. Vytvořte nový komunikační kanál tlačítkem **New Channel**. Seznam kanálů naleznete kdykoliv v menu **Channels > My Channels**.
-4. Vyplňte jméno kanálu, jeho případný popis a vyberte kolik hodnot budete v kanálu posílat. V části **Tags** můžete uvést klíčová slova, podle kterých bude váš kanál lépe dosažitelný. Vše uložte tlačítkem **Save Channel**.
-
-   ![Tvorba nového kanálu](Images/ts_novy_kanal.png)
-
-5. Nastavení kanálu můžete kdykoliv změnit a doplnit v záložce **Channel Settings**. Volbou **Sharing** lze nastavit, zda vaše data budou dostupná všem, nebo jen vám po nalogování. V záložce **API Keys** naleznete identifikátory, které byly pro váš kanál vygenerovány a jsou jeho jedinečným označením. V naší aplikaci budeme na server pouze zapisovat a budeme tak potřebovat pouze **Write API Key**, který později vložíme do zdrojového kódu aplikace.
-
-   ![Write API Key](Images/ts_apikey.png)
-
-6. Data je možné zobrazit odděleně pro vás (**Private View**) nebo pro všechny ostatní (**Public View**).
-
-
-
-## WiFi modul ESP8266
+## WiFi komunikace
 
 Komunikační modul ESP8266 umožňuje využít bezdrátovou síť WiFi, připojit se k ní a odesílát data na server. Ovládání modulu probíhá prostřednictvím tzv. AT příkazů.
 
@@ -150,6 +128,27 @@ Pomocí nepájivého a vodičů pole připojte WiFi modul ESP8266 ESP-01 a Ardui
    | U0RXD | Tx (pin 1) |
 
 ![Zapojení modulu ESP8266](Hw/meteo_ver2_bb.png)
+
+
+### Server ThingSpeak
+
+Pro vytvoření komunikačního kanálu pro sběr dat z vašeho senzoru postupujte podle následujících kroků:
+
+1. V prohlížeči otevřete stránku https://thingspeak.com/ a stiskněte tlačítko **Get Started For Free**.
+
+   ![Web ThingSpeak](Images/ts_webpage.png)
+
+2. Vytvořte si účet--který je zdarma--pomocí vašeho emailu. Žádnou reklamu na email nerozesílají. Po vytvoření se do systému nalogujte.
+3. Vytvořte nový komunikační kanál tlačítkem **New Channel**. Seznam kanálů naleznete kdykoliv v menu **Channels > My Channels**.
+4. Vyplňte jméno kanálu, jeho případný popis a vyberte kolik hodnot budete v kanálu posílat. V části **Tags** můžete uvést klíčová slova, podle kterých bude váš kanál lépe dosažitelný. Vše uložte tlačítkem **Save Channel**.
+
+   ![Tvorba nového kanálu](Images/ts_novy_kanal.png)
+
+5. Nastavení kanálu můžete kdykoliv změnit a doplnit v záložce **Channel Settings**. Volbou **Sharing** lze nastavit, zda vaše data budou dostupná všem, nebo jen vám po nalogování. V záložce **API Keys** naleznete identifikátory, které byly pro váš kanál vygenerovány a jsou jeho jedinečným označením. V naší aplikaci budeme na server pouze zapisovat a budeme tak potřebovat pouze **Write API Key**, který později vložíme do zdrojového kódu aplikace.
+
+   ![Write API Key](Images/ts_apikey.png)
+
+6. Data je možné zobrazit odděleně pro vás (**Private View**) nebo pro všechny ostatní (**Public View**).
 
 
 ### Zdrojový kód: odeslání dat na server ThingSpeak
