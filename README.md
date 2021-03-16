@@ -162,7 +162,7 @@ Kód přeložte a nahrajte do Arduino Uno. Vzhledem k tomu, že programování A
 
 ![Serial monitor](Images/monitor_ver2_wifi.png)
 
-Je-li komunikace prostřednictvím WiFi sítě korektní, na webové stránce `thingspeak.com` se začnou shromažďovat a zobrazovat změřená data. Pokud tomu tak není, zkontrolujte zadané údaje v kódu, případně si zobrazte asynchronní komunikaci na pinech 0 a 1 pomocí logického analyzátoru.
+Je-li komunikace prostřednictvím WiFi sítě korektní, na webové stránce `thingspeak.com` se začnou shromažďovat a zobrazovat změřená data (jako např. [zde](https://thingspeak.com/channels/1309584)). Pokud tomu tak není, zkontrolujte zadané údaje v kódu, případně si zobrazte asynchronní komunikaci na pinech 0 a 1 pomocí logického analyzátoru. 
 
 ![Sběr dat na ThingSpeak](Images/ts_data.png)
 
