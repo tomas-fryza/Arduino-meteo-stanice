@@ -149,6 +149,7 @@ Pomocí nepájivého a vodičů pole připojte WiFi modul ESP8266 ESP-01 a Ardui
 Použijte zdrojový kód z adresáře [Arduino > meteo_ver2](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver2/meteo_ver2.ino) a překopírujte jej do prostředí Arduino IDE. Do kódu doplňte informace o vaší WiFi síti a APIWrite kód z předchozího bodu.
 
 ```c
+// ENTER YOUR VALUES
 String ssid = "xxx";        // SSID of your WiFi network
 String password = "xxx";    // Password of your WiFi network
 String writeApiKey = "xxx"; // Write API Key from ThingSpeak cloud
