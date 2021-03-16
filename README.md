@@ -151,6 +151,8 @@ AT+CIPSEND=62
 
 Je-li komunikace prostřednictvím WiFi sítě korektní, na webové stránce `thingspeak.com` se začnou shromažďovat a zobrazovat změřená data. Pokud tomu tak není, zkontrolujte zadané údaje v kódu, případně si zobrazte asynchronní komunikaci na pinech 0 a 1 pomocí logického analyzátoru.
 
+![Sběr dat na ThingSpeak](Images/ts_data.png)
+
 
 
 ## Modifikace projektu
