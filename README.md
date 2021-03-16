@@ -154,16 +154,7 @@ String writeApiKey = "xxx"; // Write API Key from ThingSpeak cloud
 
 Kód přeložte a nahrajte do Arduino Uno. Vzhledem k tomu, že programování Arduina probíhá na stejných pinech, kde je připojen i WiFi modul, před samotným uploadem kódu odpojte vodiče z pinů 0 a 1 (Rx a Tx). Po úspěšném naprogramování vodiče opět připojte. Spusťte **Serial Monitor** na kterém pozorujte část komunikace s WiFi modulem (pozor, odpovědi modulu se nezobrazují a je nutné nastavit rychlost komunikace na 115200 baud):
 
-```bash
-AT
-AT+CWMODE=1
-AT+CWJAP="xxx","xxx"
-AT+CIPSTART="TCP","api.thingspeak.com",80
-AT+CIPSEND=62
-GET /update?api_key=xxx&field1=25.0&field2=31.3
-AT+CIPSTART="TCP","api.thingspeak.com",80
-AT+CIPSEND=62
-```
+![Serial monitor](Images/monitor_ver2_wifi.png)
 
 Je-li komunikace prostřednictvím WiFi sítě korektní, na webové stránce `thingspeak.com` se začnou shromažďovat a zobrazovat změřená data. Pokud tomu tak není, zkontrolujte zadané údaje v kódu, případně si zobrazte asynchronní komunikaci na pinech 0 a 1 pomocí logického analyzátoru.
 
