@@ -5,20 +5,20 @@ Cílem tohoto projektu je seznámení s populární platformou Arduino Uno, kter
 
 ## Použité komponenty
 
-* [Arduino Uno](https://arduino-shop.cz/arduino/1353-klon-arduino-uno-r3-atmega328p-ch340-mini-usb-1466635561.html)
+* Vývojová deska [Arduino Uno](https://arduino-shop.cz/arduino/1353-klon-arduino-uno-r3-atmega328p-ch340-mini-usb-1466635561.html)
 * I2C senzor vlhkosti a teploty DHT12 nebo [DHT11](https://dratek.cz/arduino/1360-dht11-dps-vodice-mereni-teploty-a-relativni-vlhkosti-modul-pro-arduino.html): [data sheet DHT12](Docs/dht12_manual.pdf), [návod DHT11](https://navody.dratek.cz/navody-k-produktum/teplotni-senzor-dht11.html)
-* WiFi modul [ESP8266](https://arduino-shop.cz/arduino/911-internet-veci-je-tady-tcp-ip-wifi-esp8266-1420990568.html): [AT příkazy](Docs/esp8266_at_instruction_set.pdf)
-* Nepájivé pole, drátové propojky
+* WiFi modul [ESP8266](https://dratek.cz/arduino/911-internet-veci-je-tady-tcp-ip-wifi-esp8266-esp-01.html): [AT příkazy](Docs/esp8266_at_instruction_set.pdf)
+* [Nepájivé pole](https://dratek.cz/302-nepajive-pole/), propojující [vodiče](https://dratek.cz/arduino/827-vodice-samec-samec-65-kusu.html)
 * Prostředí [Arduino IDE](https://www.arduino.cc/en/software)
 * Server [ThingSpeak](https://thingspeak.com/)
 
 Pro ověření komunikace je vhodnou komponentou také:
 * 24MHz 8-kanálový [logický analyzátor](https://www.ebay.com/sch/i.html?LH_CAds=&_ex_kw=&_fpos=&_fspt=1&_mPrRngCbx=1&_nkw=24mhz%20logic%20analyzer&_sacat=&_sadis=&_sop=12&_udhi=&_udlo=)
-* [Ovládací softare](https://www.saleae.com/downloads/) pro logický analyzátor
+* [Ovládací software](https://www.saleae.com/downloads/) pro logický analyzátor
 
-![Zapojení na nepájivém poli](Images/arduino_komponenty.jpg)
 
-Blokové zapojení celého zařízení:
+
+## Blokové zapojení celého zařízení
 
 ![Blokový diagram](Images/block_diagram.jpg)
 
