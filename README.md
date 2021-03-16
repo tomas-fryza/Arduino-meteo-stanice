@@ -16,6 +16,8 @@ Pro ověření komunikace je vhodnou komponentou také:
 * 24MHz 8-kanálový [logický analyzátor](https://www.ebay.com/sch/i.html?LH_CAds=&_ex_kw=&_fpos=&_fspt=1&_mPrRngCbx=1&_nkw=24mhz%20logic%20analyzer&_sacat=&_sadis=&_sop=12&_udhi=&_udlo=)
 * [Ovládací software](https://www.saleae.com/downloads/) pro logický analyzátor
 
+![Zapojení na nepájivém poli](Images/arduino_komponenty.jpg)
+
 
 
 ## Blokové zapojení celého zařízení
