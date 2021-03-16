@@ -59,13 +59,13 @@ Při komunikaci na sběrnici I2C se nejprve adresuje podřízený obvod jedině�
 
 Vnitřní uložení dat v senzoru DHT12:
 
-   | **Register address** | **Description** |
+   | **Adresa registru** | **Popis** |
    | :-: | :-- |
-   | 0x00 | Humidity integer part |
-   | 0x01 | Humidity fractional part |
-   | 0x02 | Temperature integer part |
-   | 0x03 | Temperature fractional part |
-   | 0x04 | Checksum |
+   | 0 | Celočíselná část vlhkosti |
+   | 1 | Desetinná část vlhkosti |
+   | 2 | Celočíselná část teploty |
+   | 3 | Desetinná část teploty |
+   | 4 | Kontrolní součet |
 
 Hodnota relativní vlhkosti vzduchu i teploty se skládá z celočíselné a desetinné části. Pro zjištění obou veličin je tak potřebné přijmout ze senzoru 4 datové byty uložené od vnitřní adresy 0 až 3.
 
