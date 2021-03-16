@@ -23,8 +23,6 @@ Obvodová schémata byla vytvořena v programu Fritzing 0.8.7b:
 * Model senzoru [DHT12](https://github.com/Bobadas/DHT12_library_Arduino/blob/master/DHT12%20Fritzing%20component.fzpz)
 * Model WiFi modulu [ESP8266-01](https://github.com/ydonnelly/ESP8266_fritzing)
 
-![Zapojení na nepájivém poli](Images/arduino_komponenty.jpg)
-
 
 
 ## Blokové zapojení celého zařízení
