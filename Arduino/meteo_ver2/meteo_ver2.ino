@@ -13,17 +13,16 @@
 
 /* Includes ----------------------------------------------------------*/
 // Wire library allows you to communicate with I2C/TWI devices
-// (see https://www.arduino.cc/en/reference/wire)
 #include <Wire.h>
 
 
 /* Global variables --------------------------------------------------*/
-// Air temperature in the form TEMP0.TEMP1, such as 21.3
-unsigned char temp0 = 0;
-unsigned char temp1 = 0;
-// Relative humidity in the form HUMID0.HUMID1, such as 25.7
-unsigned char humid0 = 0;
-unsigned char humid1 = 0;
+// Air temperature in the form T0.T1, such as 21.3
+unsigned char t0 = 0;
+unsigned char t1 = 0;
+// Relative humidity in the form H0.H1, such as 25.7
+unsigned char h0 = 0;
+unsigned char h1 = 0;
 
 // SSID of your WiFi network
 String ssid = "";
@@ -66,7 +65,7 @@ void loop()
     wifiSend();
 
     // Wait 2 minutes (120,000 milisecs) and then continue
-    delay(120000);
+    delay(60000);
 }
 
 /**********************************************************************
@@ -89,10 +88,10 @@ void getHumidTempData()
     // If 4 bytes were received, store them in global variables
     if (4 <= Wire.available())
     {
-        humid0 = Wire.read();
-        humid1 = Wire.read();
-        temp0  = Wire.read();
-        temp1  = Wire.read();
+        h0 = Wire.read();
+        h1 = Wire.read();
+        t0  = Wire.read();
+        t1  = Wire.read();
     }
 }
 
@@ -131,13 +130,13 @@ void wifiSend()
     cmd = "GET /update?api_key=";
     cmd = cmd + writeApiKey;
     cmd = cmd + "&field1=";
-    cmd = cmd + String(temp0);
+    cmd = cmd + String(t0);
     cmd = cmd + ".";
-    cmd = cmd + String(temp1);
+    cmd = cmd + String(t1);
     cmd = cmd + "&field2=";
-    cmd = cmd + String(humid0);
+    cmd = cmd + String(h0);
     cmd = cmd + ".";
-    cmd = cmd + String(humid1);
+    cmd = cmd + String(h1);
     cmd = cmd + "\r\n";
 
     // Send number of bytes first
