@@ -6,7 +6,7 @@ Cílem tohoto projektu je seznámení s populární platformou Arduino Uno, kter
 ## Použité komponenty
 
 * [Arduino Uno](https://arduino-shop.cz/arduino/1353-klon-arduino-uno-r3-atmega328p-ch340-mini-usb-1466635561.html)
-* I2C senzor vlhkosti a teploty [DHT12](https://arduino-shop.cz/arduino/1977-i2c-teplomer-a-vlhkomer-dht12-digitalni.html): [data sheet](Docs/dht12_manual.pdf)
+* I2C senzor vlhkosti a teploty DHT12 nebo [DHT11](https://dratek.cz/arduino/1360-dht11-dps-vodice-mereni-teploty-a-relativni-vlhkosti-modul-pro-arduino.html): [data sheet DHT12](Docs/dht12_manual.pdf), [návod DHT11](https://navody.dratek.cz/navody-k-produktum/teplotni-senzor-dht11.html)
 * WiFi modul [ESP8266](https://arduino-shop.cz/arduino/911-internet-veci-je-tady-tcp-ip-wifi-esp8266-1420990568.html): [AT příkazy](Docs/esp8266_at_instruction_set.pdf)
 * Nepájivé pole, drátové propojky
 * Prostředí [Arduino IDE](https://www.arduino.cc/en/software)
