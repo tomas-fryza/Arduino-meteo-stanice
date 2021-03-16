@@ -24,12 +24,10 @@ unsigned char t1 = 0;
 unsigned char h0 = 0;
 unsigned char h1 = 0;
 
-// SSID of your WiFi network
-String ssid = "";
-// Password of your WiFi network
-String password = "";
-// Write API Key from ThingSpeak cloud
-String writeApiKey = "";
+// ENTER YOUR VALUES
+String ssid = "xxx";        // SSID of your WiFi network
+String password = "xxx";    // Password of your WiFi network
+String writeApiKey = "xxx"; // Write API Key from ThingSpeak cloud
 
 
 /* Functions ---------------------------------------------------------*/
@@ -65,7 +63,7 @@ void loop()
     wifiSend();
 
     // Wait 2 minutes (120,000 milisecs) and then continue
-    delay(60000);
+    delay(120000);
 }
 
 /**********************************************************************
