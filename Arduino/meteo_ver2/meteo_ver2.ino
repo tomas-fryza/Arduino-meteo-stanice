@@ -88,8 +88,8 @@ void getHumidTempData()
     {
         h0 = Wire.read();
         h1 = Wire.read();
-        t0  = Wire.read();
-        t1  = Wire.read();
+        t0 = Wire.read();
+        t1 = Wire.read();
     }
 }
 
