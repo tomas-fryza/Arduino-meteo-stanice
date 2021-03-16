@@ -16,6 +16,13 @@ Pro ověření komunikace je vhodnou komponentou také:
 * 24MHz 8-kanálový [logický analyzátor](https://www.ebay.com/sch/i.html?LH_CAds=&_ex_kw=&_fpos=&_fspt=1&_mPrRngCbx=1&_nkw=24mhz%20logic%20analyzer&_sacat=&_sadis=&_sop=12&_udhi=&_udlo=)
 * [Ovládací software](https://www.saleae.com/downloads/) logického analyzátoru pro Windows, Linux, Mac OS X
 
+Obvodová schémata byla vytvořena v programu Fritzing 0.8.7b:
+* Verze pro [Windows](http://fritzing.org/download/0.8.7b/windows/fritzing.0.8.7b.pc.zip)
+* Verze pro [Linux](http://fritzing.org/download/0.8.7b/linux-32bit/fritzing-0.8.7b.linux.i386.tar.bz2)
+* Verze pro [Mac OS](http://fritzing.org/download/0.8.7b/mac-os-x-105/fritzing.0.8.7b.cocoa.dmg)
+* Model senzoru [DHT12](https://github.com/Bobadas/DHT12_library_Arduino/blob/master/DHT12%20Fritzing%20component.fzpz)
+* Model WiFi modulu [ESP8266-01](https://github.com/ydonnelly/ESP8266_fritzing)
+
 ![Zapojení na nepájivém poli](Images/arduino_komponenty.jpg)
 
 
@@ -52,6 +59,8 @@ Pomocí nepájivého pole a vodičů připojte na datový (SDA) a hodinový (SCL
    | SDA | SDA |
    | - | GND |
    | SCL | SCL |
+
+![Zapojení senzoru DHT12](Hw/meteo_ver1_bb.png)
 
 Kombinované čidlo komunikuje po digitální sériové sběrnici I2C (Inter-integrated Circuit). Ta obsahuje dva vodiče: pro přenos dat s označením SDA a pro přenos hodinových impulzů SCL a umožňuje snadné propojení jednoho nadřízeného obvodu (tzv. master) s více podřízenými obvody (slave). Jako master je použit mikrokontrolér AVR na vývojové desce Arduino Uno a slave obvod je čidlo teploty/vlhkosti DHT12 (lze ale připojit desítky dalších slave obvodů).
 
@@ -142,6 +151,7 @@ Pomocí nepájivého a vodičů pole připojte WiFi modul ESP8266 ESP-01 a Ardui
    | GPIO0 | Nepřipojeno |
    | U0RXD | Tx (pin 1) |
 
+![Zapojení modulu ESP8266](Hw/meteo_ver2_bb.png)
 
 
 ### Zdrojový kód: odeslání dat na server ThingSpeak
