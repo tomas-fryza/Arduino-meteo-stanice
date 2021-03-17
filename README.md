@@ -182,6 +182,4 @@ Sběr meteodat, systém pro závlahu rostlin, LoRa síť: [bakalářská práce]
 
 Bakalářský studijní program [Elektronika a komunikační technologie](https://www.urel.fekt.vut.cz/bakalarsky-program) na Ústavu radioelektroniky, FEKT VUT v Brně.
 
-[Facebook](https://www.facebook.com/URELBrno)
-
 ![Foto fakulty FEKT](Images/fekt_leto.jpg)
