@@ -25,9 +25,9 @@ Obvodová schémata byla vytvořena v programu Fritzing 0.8.7b:
 
 
 
-## Blokové zapojení celého zařízení
+## Blokové diagram aplikace
 
-![Blokový diagram](Images/block_diagram.jpg)
+![Blokový diagram](Images/block_diagram.png)
 
 
 
