@@ -74,7 +74,7 @@ Vnitřní uložení dat v senzoru DHT12:
    | 3 | Desetinná část teploty |
    | 4 | Kontrolní součet |
 
-Hodnota relativní vlhkosti vzduchu i teploty se skládá z celočíselné a desetinné části. Pro zjištění obou veličin je tak potřebné přijmout ze senzoru 4 datové byty uložené od vnitřní adresy 0 až 3.
+Hodnota relativní vlhkosti vzduchu i teploty se skládá z celočíselné a desetinné části. Pro zjištění obou veličin je tak potřebné přijmout ze senzoru 4 datové byty uložené na vnitřní adrese 0 až 3. Ukázka sériové komunikace I2C pomocí logického analyzátoru; konkrétně byla přenesena hodnota vlhkosti `24.0`% a teploty `22.4` stupňů Celsia:
 
 ![I2C komunikace se senzorem](Images/analyser_humid_temp.png)
 
@@ -87,7 +87,7 @@ Jednotka UART (Universal Asynchronous Receiver Transmiter) umožňuje převádě
 
 Užitečná data jsou zabalena do komunikačního rámce, který začíná start bitem, následuje pět až devět datových bitů seřazených od LSB k~MSB, může být použit paritní bit pro základní ověření korektního příjmu (sudá nebo lichá). Komunikace je zakončena jedním nebo dvěma stop bity. Struktura rámce musí být dopředu domluvena a označuje se symbolicky: 7E2 (sedm datových bitů, sudá parita, dva stop bity), 8N1 (osm dat, bez parity, jeden stop), apod.
 
-Ukázka UART signálu pro přenos části AT příkazu pro Wifi modul ESP8266 v módu 8N1:
+Ukázka UART komunikace pomocí logického analyzátoru; zde se jedná o část AT příkazu pro Wifi modul ESP8266 v módu 8N1:
 
 ![Přenos AT příkazu pomocí UART](Images/analyser_uart_esp8266.png)
 
