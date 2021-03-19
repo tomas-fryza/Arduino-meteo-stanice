@@ -6,7 +6,7 @@ Cílem tohoto projektu je seznámení s populární platformou Arduino, která o
 
 # Obsah
 * [Použité komponenty](#Pouzite-komponenty)
-* [Blokový diagram aplikace](### Blokovy-diagram-aplikace)
+* [Blokový diagram aplikace](#Blokovy-diagram-aplikace)
 
 
 
