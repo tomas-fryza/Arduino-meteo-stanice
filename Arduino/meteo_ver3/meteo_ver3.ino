@@ -13,15 +13,9 @@
  **********************************************************************/
 
 /* Includes ----------------------------------------------------------*/
-// Import required libraries
 // Wire library allows you to communicate with I2C/TWI devices
-// (see https://www.arduino.cc/en/reference/wire)
 #include <Wire.h>
-
 #include <SoftwareSerial.h>
-// Pin 2 and 3 act as RX and TX. Connect them to TX and RX of ESP8266
-SoftwareSerial espSerial(2, 3);
-#define DEBUG true
 
 
 /* Global variables --------------------------------------------------*/
@@ -32,12 +26,15 @@ unsigned char t1 = 0;
 unsigned char h0 = 0;
 unsigned char h1 = 0;
 
-// SSID of your WiFi network
-String mySSID = "";
-// Password of your WiFi network
-String myPWD = "";
-// Write API Key from ThingSpeak cloud
-String myAPI = "";
+// Arduino pin  ESP pin  Arduino point of view
+//     2          Tx     Receive data from ESP
+//     3          Rx     Transmit data to ESP
+SoftwareSerial espSerial(2, 3);
+
+// ENTER YOUR VALUES
+String ssid = "xxx";        // SSID of your WiFi network
+String password = "xxx";    // Password of your WiFi network
+String writeApiKey = "xxx"; // Write API Key from ThingSpeak cloud
 
 
 /* Functions ---------------------------------------------------------*/
@@ -51,16 +48,15 @@ void setup()
 {
     // Setup I2C/TWI communication with the Temp/Humid sensor
     Wire.begin();
+
     // Setup UART communication with Serial monitor in Arduino IDE
     Serial.begin(9600);
+
     // Setup UART communication with WiFi module
     espSerial.begin(115200);
 
     // Setup WiFi module and get IP address from your router
-    espData("AT", 1000, DEBUG);          // Test ESP8266 module
-    espData("AT+CWMODE=1", 2000, DEBUG); // Set the ESP mode as station mode
-    espData("AT+CWJAP=\""+ mySSID +"\",\""+ myPWD +"\"", 1000, DEBUG);//Connect to WiFi network
-    delay(5000);
+    wifiSetup();
 }
 
 /**********************************************************************
@@ -92,8 +88,10 @@ void getHumidTempData()
 {
     // Begin communication with a sensor whose slave address is 0x5c
     Wire.beginTransmission(0x5c);
+
     // Set the internal address in the sensor to address 0
     Wire.write(byte(0x00));
+
     // Stop communication
     Wire.endTransmission();
 
@@ -117,49 +115,14 @@ void getHumidTempData()
  **********************************************************************/
 void wifiSetup()
 {
-    // Command to get IP address
-//    String cmd = "AT+CWJAP=\"" +ssid+ "\",\"" +password+ "\"";
-    
     // Test WiFi module
-    Serial.println("AT"); delay(1000);
+    espData("AT", 1000);
+
     // Set mode to STA
-    Serial.println("AT+CWMODE=1"); delay(2000);
+    espData("AT+CWMODE=1", 2000);
+
     // Login to WiFi network and get IP address
-//    Serial.println(cmd); delay(5000);
-}
-
-
-/**********************************************************************
- * Function: espData()
- * Purpose:  Send AT command to EST8266 module and wait for response.
- * Returns:  response - Response of ESP8266
- **********************************************************************/
-String espData(String command, const int timeout, boolean debug)
-{
-    // Display/send info to Serial monitor
-    Serial.print("AT Command ==> ");
-    Serial.print(command);
-    Serial.println("     ");
-
-    // Send info to ESP8266 module
-    String response = "";
-    espSerial.println(command);
-
-    // Wait for timeout and read responce from receiver pin
-    long int time = millis();
-    while ((time + timeout) > millis())
-    {
-        while (espSerial.available())
-        {
-            char c = espSerial.read();
-            response += c;
-        }
-    }
-    if (debug)
-    {
-        Serial.print(response);
-    }
-    return response;
+    espData("AT+CWJAP=\""+ ssid +"\",\""+ password +"\"", 5000);
 }
 
 
@@ -170,21 +133,13 @@ String espData(String command, const int timeout, boolean debug)
  **********************************************************************/
 void wifiSend()
 {
-    // Command to WiFi module
-    String cmd = "AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80";
-    // Display/send info to Serial monitor
-//    Serial.print("AT Command ==> ");
-//    Serial.print(cmd);
-//    Serial.println("     ");
-
     // Start communication with ThingSpeak server
-//    espSerial.println(cmd); delay(500);
-    espData(cmd, 1000, DEBUG);
+    espData("AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80", 500);
 
     // Prepare request including temperature/humidity data
     // GET /update?api_key=xxx&field1=21.6&field2=19.4
-    cmd = "GET /update?api_key=";
-    cmd = cmd + myAPI;
+    String cmd = "GET /update?api_key=";
+    cmd = cmd + writeApiKey;
     cmd = cmd + "&field1=";
     cmd = cmd + String(t0);
     cmd = cmd + ".";
@@ -193,15 +148,41 @@ void wifiSend()
     cmd = cmd + String(h0);
     cmd = cmd + ".";
     cmd = cmd + String(h1);
-    cmd = cmd + "\r\n";
 
-    // Send number of bytes first
-//    Serial.print("AT+CIPSEND=");
-//    Serial.println(cmd.length()); delay (100);
-    espData("AT+CIPSEND=" +String(cmd.length()), 100, DEBUG);  
+    // Send number of bytes first. Note that +2 is added for "\r\n"
+    espData("AT+CIPSEND=" +String(cmd.length()+2), 100);
 
     // Send request including temperature/humidity data
-    espData(cmd, 100, DEBUG);
-//    Serial.print(cmd);
-//    espSerial.print(cmd);
+    espData(cmd, 100);
 }
+
+
+/**********************************************************************
+ * Function: espData()
+ * Purpose:  Send AT command to EST8266 module and wait for response.
+ * Returns:  response - Response of ESP8266
+ **********************************************************************/
+String espData(String command, const int timeout)
+{
+    // Just display info to Serial monitor
+    Serial.print("AT Command ==> ");
+    Serial.print(command);
+    Serial.println("     ");
+
+    // Use software serial and send AT command to ESP8266 module
+    String response = "";
+    espSerial.println(command);
+
+    // Wait for timeout and read response from receiver pin
+    long int time = millis();
+    while ((time + timeout) > millis())
+    {
+        while (espSerial.available())
+        {
+            char c = espSerial.read();
+            response += c;
+        }
+    }
+    return response;
+}
+
