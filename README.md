@@ -14,7 +14,7 @@ Cílem tohoto projektu je seznámení s populární platformou Arduino, která o
   * [Zobrazení dat ze senzoru v Serial monitoru](#Zobrazení-dat-ze-senzoru-v-Serial-monitoru)
 * [WiFi komunikace](#WiFi-komunikace)
   * [Server ThingSpeak](#Server-ThingSpeak)
-* [Odeslání dat na server ThingSpeak](#Odeslání-dat-na-server-ThingSpeak)
+  * [Odeslání dat na server ThingSpeak](#Odeslání-dat-na-server-ThingSpeak)
 * [Verze zdrojových kódů](#Verze-zdrojových-kódů)
 * [Modifikace projektu](#Modifikace-projektu)
 * [Kontakt](#Kontakt)
