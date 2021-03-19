@@ -87,9 +87,9 @@ Jednotka UART (Universal Asynchronous Receiver Transmiter) umožňuje převádě
 
 Užitečná data jsou zabalena do komunikačního rámce, který začíná start bitem, následuje pět až devět datových bitů seřazených od LSB k MSB, může být použit paritní bit pro základní ověření korektního příjmu (sudá nebo lichá). Komunikace je zakončena jedním nebo dvěma stop bity. Struktura rámce musí být dopředu domluvena a označuje se symbolicky: 7E2 (sedm datových bitů, sudá parita, dva stop bity), 8N1 (osm dat, bez parity, jeden stop), apod.
 
-Ukázka UART komunikace pomocí logického analyzátoru; zde se jedná o část [AT příkazu](Docs/esp8266_at_instruction_set.pdf) pro WiFi modul ESP8266 v módu 8N1:
+Ukázka UART komunikace pomocí logického analyzátoru v módu 8N1:
 
-![Přenos AT příkazu pomocí UART](Images/analyser_uart_esp8266.png)
+![Přenos AT příkazu pomocí UART](Images/analyser_uart_monitor.png)
 
 Pro ovládání sériové komunikace UART jsou využity interní funkce Arduina [`Serial`](https://www.arduino.cc/reference/en/language/functions/communication/serial/). Detailnější informace o sériové komunikaci UART je možné nalézt v materiálech předmětu [Digitální elektronika 2](https://github.com/tomas-fryza/Digital-electronics-2/tree/master/Labs/07-uart).
 
@@ -104,7 +104,7 @@ Zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Séri
 
 ## WiFi komunikace
 
-Komunikační modul ESP8266 umožňuje využít bezdrátovou síť WiFi, připojit se k ní a odesílat data na server. Ovládání modulu probíhá prostřednictvím tzv. AT příkazů.
+Komunikační modul ESP8266 umožňuje využít bezdrátovou síť WiFi, připojit se k ní a odesílat data na server. Ovládání modulu probíhá prostřednictvím tzv. [AT příkazu](Docs/esp8266_at_instruction_set.pdf) což jsou textové řetězce začínající znaky `AT` a pokračující příkazem z manuálu.
 
 Pomocí nepájivého a vodičů pole připojte WiFi modul ESP8266 ESP-01 a Arduino Uno dle tabulky. Výměna dat mezi modulem a řídicím mikrokontrolérem probíhá prostřednictvím asynchronní komunikace. Všimněte si, že vysílací pin modulu je proto spojen s přijímacím pinem Arduino a obráceně.
 
