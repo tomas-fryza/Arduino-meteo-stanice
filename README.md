@@ -1,3 +1,7 @@
+![GitHub](https://img.shields.io/github/license/tomas-fryza/Arduino-meteo-stanice)
+
+
+
 # Jednoduchá meteo stanice
 
 Cílem tohoto projektu je seznámení s populární platformou Arduino, která obsahuje 8bitový mikrokontrolér AVR a je vhodná pro celou řadu řídicích aplikací. Bude vytvořen jednoduchý bod v síti Internet of Things, konkrétně meteo stanici se senzorem teploty a relativní vlhkosti vzduchu. Pro odesílání dat na server ThingSpeak je použita WiFi komunikace.
