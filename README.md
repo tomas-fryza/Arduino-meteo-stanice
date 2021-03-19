@@ -204,12 +204,11 @@ Sběr meteodat, systém pro závlahu rostlin, LoRa síť: [bakalářská práce]
 
 ## Kontakt
 
-[![Tomas](https://img.shields.io/badge/university-VUT-red)](https://www.vutbr.cz/lide/tomas-fryza-11389)
-[![Program](https://img.shields.io/badge/studium-BPC--EKT-blue)](https://www.urel.fekt.vut.cz/bakalarsky-program)
-
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
 <!-- display the social media buttons in your README -->
 
+[![Tomas](https://img.shields.io/badge/university-VUT-red)](https://www.vutbr.cz/lide/tomas-fryza-11389)
+[![Program](https://img.shields.io/badge/studium-BPC--EKT-blue)](https://www.urel.fekt.vut.cz/bakalarsky-program)
 [![alt text][2.2]][2]
 [![alt text][6.2]][6]
 
