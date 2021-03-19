@@ -1,10 +1,3 @@
-[![University](https://img.shields.io/badge/university-VUT-red)](https://www.vut.cz)
-[![Program](https://img.shields.io/badge/studium-BPC--EKT-blue)](https://www.urel.fekt.vut.cz/bakalarsky-program)
-[![GitHub](https://img.shields.io/github/license/tomas-fryza/Arduino-meteo-stanice)](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/LICENSE)
-[![GitHub last commit](https://img.shields.io/github/last-commit/tomas-fryza/Arduino-meteo-stanice)](https://github.com/tomas-fryza/Arduino-meteo-stanice/commits/main)
-
-
-
 # Jednoduchá meteo stanice
 
 Cílem tohoto projektu je seznámení s populární platformou Arduino, která obsahuje 8bitový mikrokontrolér AVR a je vhodná pro celou řadu řídicích aplikací. Bude vytvořen jednoduchý bod v síti Internet of Things, konkrétně meteo stanici se senzorem teploty a relativní vlhkosti vzduchu. Pro odesílání dat na server ThingSpeak je použita WiFi komunikace.
@@ -217,8 +210,8 @@ Sběr meteodat, systém pro závlahu rostlin, LoRa síť: [bakalářská práce]
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
 <!-- display the social media buttons in your README -->
 
-[![alt text][2.1]][2]
-[![alt text][6.1]][6]
+[![alt text][2.2]][2]
+[![alt text][6.2]][6]
 
 
 <!-- links to social media icons -->
@@ -254,7 +247,5 @@ Sběr meteodat, systém pro závlahu rostlin, LoRa síť: [bakalářská práce]
 [6]: http://www.github.com/tomas-fryza
 
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
-
-Bakalářský studijní program [Elektronika a komunikační technologie](https://www.urel.fekt.vut.cz/bakalarsky-program) (BPC-EKT) na Ústavu radioelektroniky, FEKT VUT v Brně.
 
 ![Foto fakulty FEKT](Images/fekt_leto.jpg)
