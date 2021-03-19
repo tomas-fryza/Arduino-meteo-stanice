@@ -212,11 +212,7 @@ Bakalářský studijní program [Elektronika a komunikační technologie](https:
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
 <!-- display the social media buttons in your README -->
 
-[![alt text][1.1]][1]
 [![alt text][2.1]][2]
-[![alt text][3.1]][3]
-[![alt text][4.1]][4]
-[![alt text][5.1]][5]
 [![alt text][6.1]][6]
 
 
@@ -245,7 +241,11 @@ Bakalářský studijní program [Elektronika a komunikační technologie](https:
 <!-- links to your social media accounts -->
 <!-- update these accordingly -->
 
+[1]: http://www.twitter.com/carlsednaoui
 [2]: https://www.facebook.com/URELBrno
+[3]: https://plus.google.com/+CarlSednaoui
+[4]: http://carlsed.tumblr.com
+[5]: http://dribbble.com/carlsednaoui
 [6]: http://www.github.com/tomas-fryza
 
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
