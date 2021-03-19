@@ -165,6 +165,15 @@ Je-li komunikace prostřednictvím WiFi sítě korektní, na webové stránce `t
 ![Sběr dat na ThingSpeak](Images/ts_data.png)
 
 
+### Verze zdrojových kódů
+
+   | **Číslo verze** | **Popis** |
+   | :-: | :-- |
+   | [ver1](Arduino/meteo_ver1/meteo_ver1.ino) | Čtení teploty + vlhkosti z DHT12 a zobrazení v Serial monitoru |
+   | [ver2](Arduino/meteo_ver2/meteo_ver2.ino) | Čtení hodnot z DHT12 a odeslání pomocí ESP8266 na ThingSpeak |
+   | [ver3](Arduino/meteo_ver2/meteo_ver3.ino) | Komunikace s WiFi modulem ESP8266 pomocí softwarového UARTu  |
+
+
 
 ## Modifikace projektu
 
