@@ -112,7 +112,7 @@ Ukázka UART komunikace v módu 8N1 pomocí logického analyzátoru:
 Pro ovládání sériové komunikace UART jsou využity interní funkce Arduina [`Serial`](https://www.arduino.cc/reference/en/language/functions/communication/serial/). Detailnější informace o sériové komunikaci UART je možné nalézt v materiálech předmětu [Digitální elektronika 2](https://github.com/tomas-fryza/Digital-electronics-2/tree/master/Labs/07-uart).
 
 
-### Zdrojový kód: zobrazení dat ze senzoru v Serial monitoru
+### Zobrazení dat ze senzoru v Serial monitoru
 
 Zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Sériovém monitoru** překopírujte z [meteo_ver1](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver1/meteo_ver1.ino) do Arduino IDE, zkompilujte jej a nahrajte do vývojové desky. Otevřete sériový monitor a nastavte v něm stejnou symbolovou rychlost s jakou mikrokontrolér data vysílá, tj. 9600 baud.
 
@@ -163,7 +163,7 @@ Pro vytvoření komunikačního kanálu pro sběr dat z vašeho senzoru postupuj
 6. Data je možné zobrazit odděleně pro vás (**Private View**) nebo pro všechny ostatní (**Public View**).
 
 
-### Zdrojový kód: odeslání dat na server ThingSpeak
+### Odeslání dat na server ThingSpeak
 
 Použijte zdrojový kód [meteo_ver2](https://github.com/tomas-fryza/Arduino-meteo-stanice/blob/main/Arduino/meteo_ver2/meteo_ver2.ino) a překopírujte jej do prostředí Arduino IDE. Do kódu doplňte informace o vaší WiFi síti a APIWrite kód z předchozího bodu.
 
