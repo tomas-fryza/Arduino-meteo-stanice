@@ -41,8 +41,10 @@ void setup()
 {
     // Setup I2C/TWI communication with the Temp/Humid sensor
     Wire.begin();
+
     // Setup UART communication with WiFi module
     Serial.begin(115200);
+
     // Setup WiFi module and get IP address from your router
     wifiSetup();
 }
@@ -76,8 +78,10 @@ void getHumidTempData()
 {
     // Begin communication with a sensor whose slave address is 0x5c
     Wire.beginTransmission(0x5c);
+
     // Set the internal address in the sensor to address 0
     Wire.write(byte(0x00));
+
     // Stop communication
     Wire.endTransmission();
 
@@ -105,8 +109,10 @@ void wifiSetup()
     
     // Test WiFi module
     Serial.println("AT"); delay(1000);
+
     // Set mode to STA
     Serial.println("AT+CWMODE=1"); delay(2000);
+
     // Login to WiFi network and get IP address
     Serial.println(cmd); delay(5000);
 }
@@ -120,6 +126,7 @@ void wifiSend()
 {
     // Command to WiFi module
     String cmd = "AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80";
+
     // Start communication with ThingSpeak server
     Serial.println(cmd); delay(500);
 

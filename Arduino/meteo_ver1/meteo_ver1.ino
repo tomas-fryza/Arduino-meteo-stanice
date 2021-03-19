@@ -36,6 +36,7 @@ void setup()
 {
     // Setup I2C/TWI communication with the Temp/Humid sensor
     Wire.begin();
+
     // Setup UART communication for Serial Monitor
     Serial.begin(9600);
 }
@@ -73,8 +74,10 @@ void getHumidTempData()
 {
     // Begin communication with a sensor whose slave address is 0x5c
     Wire.beginTransmission(0x5c);
+
     // Set the internal address in the sensor to address 0
     Wire.write(byte(0x00));
+
     // Stop communication
     Wire.endTransmission();
 
