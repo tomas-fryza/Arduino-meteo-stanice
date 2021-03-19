@@ -198,7 +198,7 @@ Je-li komunikace prostřednictvím WiFi sítě korektní, na webové stránce `t
 
 Rozšířit tuto základí aplikaci lze celou řadou modulů a senzorů, např. tlak vzduchu, míra osvětlení, senzor srážek, síla větru, vlhkost půdy, aj. Velký výběr naleznete např. na serveru [dratek.cz](https://dratek.cz/).
 
-Vladimír Lahoda. [Automatizovaný měřící systém pro zavlažování rostlin s IoT konektivitou](https://www.facebook.com/URELBrno/posts/1459331204276701). Bakalářská práce v programu BPC-EKT, 2020/21. Klíčová slova: LoRa, ESP32, Embedded, Meteostanice, Zavlažování.
+Vladimír Lahoda. [Automatizovaný měřící systém pro zavlažování rostlin s IoT konektivitou](https://www.facebook.com/URELBrno/posts/1459331204276701). Bakalářská práce v programu BPC-EKT, červen 2020. Klíčová slova: LoRa, ESP32, Embedded, Meteostanice, Zavlažování.
 
 
 
