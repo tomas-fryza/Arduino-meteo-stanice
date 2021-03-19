@@ -206,9 +206,6 @@ Sběr meteodat, systém pro závlahu rostlin, LoRa síť: [bakalářská práce]
 
 [Tomáš Frýza](https://www.vutbr.cz/lide/tomas-fryza-11389)
 
-Bakalářský studijní program [Elektronika a komunikační technologie](https://www.urel.fekt.vut.cz/bakalarsky-program) na Ústavu radioelektroniky, FEKT VUT v Brně.
-
-
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
 <!-- display the social media buttons in your README -->
 
@@ -250,5 +247,6 @@ Bakalářský studijní program [Elektronika a komunikační technologie](https:
 
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
 
+Bakalářský studijní program [Elektronika a komunikační technologie](https://www.urel.fekt.vut.cz/bakalarsky-program) na Ústavu radioelektroniky, FEKT VUT v Brně.
 
 ![Foto fakulty FEKT](Images/fekt_leto.jpg)
