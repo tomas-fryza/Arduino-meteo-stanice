@@ -87,7 +87,7 @@ Jednotka UART (Universal Asynchronous Receiver Transmiter) umožňuje převádě
 
 Užitečná data jsou zabalena do komunikačního rámce, který začíná start bitem, následuje pět až devět datových bitů seřazených od LSB k MSB, může být použit paritní bit pro základní ověření korektního příjmu (sudá nebo lichá). Komunikace je zakončena jedním nebo dvěma stop bity. Struktura rámce musí být dopředu domluvena a označuje se symbolicky: 7E2 (sedm datových bitů, sudá parita, dva stop bity), 8N1 (osm dat, bez parity, jeden stop), apod.
 
-Ukázka UART komunikace pomocí logického analyzátoru; zde se jedná o část AT příkazu pro WiFi modul ESP8266 v módu 8N1:
+Ukázka UART komunikace pomocí logického analyzátoru; zde se jedná o část [AT příkazu](Docs/esp8266_at_instruction_set.pdf) pro WiFi modul ESP8266 v módu 8N1:
 
 ![Přenos AT příkazu pomocí UART](Images/analyser_uart_esp8266.png)
 
