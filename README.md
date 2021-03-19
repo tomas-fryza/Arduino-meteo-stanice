@@ -87,7 +87,7 @@ Jednotka UART (Universal Asynchronous Receiver Transmiter) umožňuje převádě
 
 Užitečná data jsou zabalena do komunikačního rámce, který začíná start bitem, následuje pět až devět datových bitů seřazených od LSB k MSB, může být použit paritní bit pro základní ověření korektního příjmu (sudá nebo lichá). Komunikace je zakončena jedním nebo dvěma stop bity. Struktura rámce musí být dopředu domluvena a označuje se symbolicky: 7E2 (sedm datových bitů, sudá parita, dva stop bity), 8N1 (osm dat, bez parity, jeden stop), apod.
 
-Ukázka UART komunikace pomocí logického analyzátoru v módu 8N1:
+Ukázka UART komunikace v módu 8N1 pomocí logického analyzátoru:
 
 ![Přenos AT příkazu pomocí UART](Images/analyser_uart_monitor.png)
 
