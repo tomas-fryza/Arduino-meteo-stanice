@@ -3,6 +3,13 @@
 Cílem tohoto projektu je seznámení s populární platformou Arduino, která obsahuje 8bitový mikrokontrolér AVR a je vhodná pro celou řadu řídicích aplikací. Bude vytvořen jednoduchý bod v síti Internet of Things, konkrétně meteo stanici se senzorem teploty a relativní vlhkosti vzduchu. Pro odesílání dat na server ThingSpeak je použita WiFi komunikace.
 
 
+
+# Obsah
+* [Použité komponenty](#Pouzite-komponenty)
+* [Blokový diagram aplikace](### Blokovy-diagram-aplikace)
+
+
+
 ## Použité komponenty
 
 * Vývojová deska [Arduino Uno](https://arduino-shop.cz/arduino/1353-klon-arduino-uno-r3-atmega328p-ch340-mini-usb-1466635561.html)
