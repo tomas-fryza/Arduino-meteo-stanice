@@ -1,6 +1,6 @@
 ![GitHub](https://img.shields.io/github/license/tomas-fryza/Arduino-meteo-stanice)
 ![GitHub last commit](https://img.shields.io/github/last-commit/tomas-fryza/Arduino-meteo-stanice)
-![University](https://img.shields.io/badge/university-VUT-red)
+[![University](https://img.shields.io/badge/university-VUT-red)](www.vut.cz)
 
 
 
