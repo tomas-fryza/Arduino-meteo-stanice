@@ -7,6 +7,17 @@ Cílem tohoto projektu je seznámení s populární platformou Arduino, která o
 # Obsah
 * [Použité komponenty](#Použité-komponenty)
 * [Blokový diagram aplikace](#Blokový-diagram-aplikace)
+* [Arduino Uno](#Arduino Uno)
+* [Sériová komunikace se senzorem a UART](#Sériová komunikace se senzorem a UART)
+  * [Sběrnice I2C](#Sběrnice I2C)
+  * [Asynchronní komunikace UART](#Asynchronní komunikace UART)
+  * [Zdrojový kód: zobrazení dat ze senzoru v Serial monitoru](#Zdrojový kód: zobrazení dat ze senzoru v Serial monitoru)
+* [WiFi komunikace](#WiFi komunikace)
+  * [Server ThingSpeak](#Server ThingSpeak)
+* [Zdrojový kód: odeslání dat na server ThingSpeak](#Zdrojový kód: odeslání dat na server ThingSpeak)
+* [Verze zdrojových kódů](#Verze zdrojových kódů)
+* [Modifikace projektu](#Modifikace projektu)
+* [Kontakt](#Kontakt)
 
 
 
@@ -172,7 +183,8 @@ Je-li komunikace prostřednictvím WiFi sítě korektní, na webové stránce `t
 ![Sběr dat na ThingSpeak](Images/ts_data.png)
 
 
-### Verze zdrojových kódů
+
+## Verze zdrojových kódů
 
    | **Číslo verze** | **Popis** |
    | :-: | :-- |
