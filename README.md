@@ -205,6 +205,7 @@ Vladimír Lahoda. [Automatizovaný měřící systém pro zavlažování rostlin
 ## Q & A
 
 Q: Kolik dat lze do jednoho kanálu ThingSpeak odeslat?
+
 Q: Jaký je celkový datový tok?
 
 
