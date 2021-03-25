@@ -65,7 +65,7 @@ void loop()
     wifiSend();
 
     // Wait 2 minutes (120,000 milisecs) and then continue
-    delay(120000);
+    delay(60000);
 }
 
 /**********************************************************************
