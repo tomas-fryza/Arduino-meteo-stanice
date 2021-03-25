@@ -194,7 +194,7 @@ Je-li komunikace prostřednictvím WiFi sítě korektní, na webové stránce `t
 
 
 
-## Modifikace projektu
+## Modifikace stanice
 
 Rozšířit tuto základí aplikaci lze celou řadou modulů a senzorů, např. tlak vzduchu, míra osvětlení, senzor srážek, síla větru, vlhkost půdy, aj. Velký výběr naleznete např. na serveru [dratek.cz](https://dratek.cz/).
 
