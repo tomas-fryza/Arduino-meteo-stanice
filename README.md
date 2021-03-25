@@ -169,8 +169,8 @@ Použijte zdrojový kód [meteo_ver2](https://github.com/tomas-fryza/Arduino-met
 
 ```c
 // ENTER YOUR VALUES
-String ssid = "xxx";        // SSID of your WiFi network
-String password = "xxx";    // Password of your WiFi network
+String ssid        = "xxx"; // SSID of your WiFi network
+String password    = "xxx"; // Password of your WiFi network
 String writeApiKey = "xxx"; // Write API Key from ThingSpeak cloud
 ```
 
