@@ -25,8 +25,8 @@ unsigned char h0 = 0;
 unsigned char h1 = 0;
 
 // ENTER YOUR VALUES
-String ssid = "xxx";        // SSID of your WiFi network
-String password = "xxx";    // Password of your WiFi network
+String ssid        = "xxx"; // SSID of your WiFi network
+String password    = "xxx"; // Password of your WiFi network
 String writeApiKey = "xxx"; // Write API Key from ThingSpeak cloud
 
 
