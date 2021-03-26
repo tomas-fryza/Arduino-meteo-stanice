@@ -124,7 +124,7 @@ Zdrojový kód aplikace pro čtení dat ze senzoru a jejich zobrazení v **Séri
 
 Komunikační modul ESP8266 umožňuje využít bezdrátovou síť WiFi, připojit se k ní a odesílat data na server. Ovládání modulu probíhá prostřednictvím tzv. [AT příkazu](Docs/esp8266_at_instruction_set.pdf) což jsou textové řetězce začínající znaky `AT` a pokračující příkazem z manuálu.
 
-Pomocí nepájivého a vodičů pole připojte WiFi modul ESP8266 ESP-01 a Arduino Uno dle tabulky. Výměna dat mezi modulem a řídicím mikrokontrolérem probíhá prostřednictvím asynchronní komunikace. Všimněte si, že vysílací pin modulu je proto spojen s přijímacím pinem Arduino a obráceně.
+Pomocí nepájivého pole a vodičů připojte WiFi modul ESP8266 ESP-01 a Arduino Uno dle tabulky. Výměna dat mezi modulem a řídicím mikrokontrolérem probíhá prostřednictvím asynchronní komunikace. Všimněte si, že vysílací pin modulu je proto spojen s přijímacím pinem Arduino a obráceně.
 
 ![Připojení modulu ESP8266](Images/cv_esp8266_foto_description.jpg)
 
