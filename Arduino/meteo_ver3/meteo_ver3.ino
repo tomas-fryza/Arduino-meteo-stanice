@@ -134,7 +134,7 @@ void wifiSetup()
 void wifiSend()
 {
     // Start communication with ThingSpeak server
-    espData("AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80", 500);
+    espData("AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80", 1000);
 
     // Prepare request including temperature/humidity data
     // GET /update?api_key=xxx&field1=21.6&field2=19.4
